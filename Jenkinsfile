@@ -5,7 +5,7 @@ pipeline {
     stage('Fetch the code')
     {
         steps{
-            git branch:'master' , url: 'https://github.com/Teja-Chittamuri/K8s_CDPIpelineCode-.git'
+            git branch:'master' , url:'https://github.com/Teja-Chittamuri/K8s_CDPIpelineCode-.git'
         }
     }
 
