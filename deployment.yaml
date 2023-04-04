@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: flaskapp-delployment
+  labels:
+    app: flaskapp
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      name: flaskapp
+      labels:
+        app: flaskapp
+        tier: frontend
+    spec:
+      containers:
+        - name: flaskkapp
+          image: tejachittamuri/cicd:latest
+          ports:
+           - containerPort: 80
+
+---
+
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: flask-service
+  labels: 
+     tier: network
+spec:
+  type: NodePort
+  selector:
+    tier: frontend
+    app: flaskapp
+  ports:
+    - port: 80
+      targetPort: 5000
+      nodePort: 30001
