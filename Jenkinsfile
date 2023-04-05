@@ -6,7 +6,10 @@ node {
 
         checkout scm
     }
-
+    stage(' update ManifestUpdate') {
+                echo "Updating manifest"
+                parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+        }
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
