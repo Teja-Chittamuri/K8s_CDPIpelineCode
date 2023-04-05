@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: flaskkapp
-          image: tejachittamuri/ultimatecicd:default
+          image: tejachittamuri/ultimatecicd:env. 5
           ports:
            - containerPort: 80
 
